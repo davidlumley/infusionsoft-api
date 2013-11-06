@@ -1,7 +1,9 @@
 require "infusionsoft/api/version"
 
-module Infusionsoft
-  module Api
-    # Your code goes here...
-  end
-end
+require 'infusionsoft/api/helpers'
+
+require 'infusionsoft/api/models/base'
+require 'infusionsoft/api/models/contact'
+require 'infusionsoft/api/models/contact_group'
+
+require 'infusionsoft/api/client'
