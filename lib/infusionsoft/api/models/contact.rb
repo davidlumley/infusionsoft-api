@@ -4,7 +4,7 @@ module Infusionsoft
       class Contact < Infusionsoft::Api::Model::Base
 
         def fields
-          [:FirstName, :LastName, :Company, :Email]
+          [:Id, :FirstName, :LastName, :Company, :Email]
         end
 
       end

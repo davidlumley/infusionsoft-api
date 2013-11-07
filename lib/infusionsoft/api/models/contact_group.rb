@@ -6,6 +6,7 @@ module Infusionsoft
         def all(query = {}, page_number = 0)
           results = super(query, page_number)
           results.map{|x|{
+            'Id'           => x['ContactId'],
             'FirstName'    => x['Contact.FirstName'],
             'LastName'     => x['Contact.LastName'],
             'Company'      => x['Contact.Company'],
@@ -19,7 +20,7 @@ module Infusionsoft
         end
 
         def fields
-          [:'ContactGroup', :'Contact.FirstName', :'Contact.LastName', :'Contact.Company', :'Contact.Email']
+          [:'ContactGroup', :'ContactId', :'Contact.FirstName', :'Contact.LastName', :'Contact.Company', :'Contact.Email']
         end
 
       end
