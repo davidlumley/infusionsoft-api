@@ -8,13 +8,18 @@ module Infusionsoft
           @model_name = model_name || 'Base'
         end
 
-        def all(query = {}, page_number = 0)
+        def all(query = {}, paginate = true, page_number = 0)
           results = @client.connection.call('DataService.query', @client.api_key, self.table_name, 1000, page_number, query, self.fields)
-          results.length > 0 ? results + self.all(query, page_number + 1) : results
+          results.length > 0 && paginate ? results + self.all(query, true, page_number + 1) : results
+        end
+
+        def first(query = {})
+          self.all(query, false)[0]
         end
 
         def create(data = {})
-          @client.connection.call('DataService.add', @client.api_key, self.table_name, data)
+          data['Id'] = @client.connection.call('DataService.add', @client.api_key, self.table_name, data)
+          data
         end
 
         def delete(query)
