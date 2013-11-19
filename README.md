@@ -47,13 +47,35 @@ You can also pass a query hash
 
 ####  Contact Groups
 
-Return a list of all contact groups (i.e. contacts with a tag or group)
-    api_client.contact_group.all
+Return a list of all contact groups
+    api_client.contact_group_assign.all
 
 You can also pass a hash query
 
-    api_client.contact_group.all({
+    api_client.contact_group_assign.all({
+      :GroupCategoryId => 12,
+    })
+
+####  Contact Group Assignments
+
+Return a list of all contact group assignments (i.e. contacts with a tag or group)
+    api_client.contact_group_assign.all
+
+You can also pass a hash query
+
+    api_client.contact_group_assign.all({
       :ContactGroup => 'New Customer',
+    })
+
+####  Contact Group Categories
+
+Return a list of all contact group categories
+    api_client.contact_group_category.all
+
+You can also pass a hash query
+
+    api_client.contact_group_category.all({
+      :CategoryName => 'Custom Tags',
     })
 
 ## Todo
