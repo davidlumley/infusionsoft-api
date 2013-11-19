@@ -45,6 +45,25 @@ You can also pass a query hash
       :FirstName => 'David',
     })
 
+You can create contacts too
+
+    client = api_client.contact.create({
+      :FirstName => 'David',
+      :LastName  => 'Lumley',
+      :Email     => 'david@davidlumley.com.au',
+      :Company   => 'Client Heartbeat',
+    })
+
+You can also delete contacts by passing an ID
+
+    api_client.contact.delete(16)
+
+Or by passing a query
+
+    api_client.contact.delete({
+      :FirstName => 'Trevor',
+    })
+
 ####  Contact Groups
 
 Return a list of all contact groups
