@@ -3,8 +3,8 @@ module Infusionsoft
     module Model
       class ContactGroupAssign < Infusionsoft::Api::Model::Base
 
-        def all(query = {}, page_number = 0)
-          results = super(query, page_number)
+        def all(query = {}, paginate = true, page_number = 0)
+          results = super(query, paginate, page_number)
           results.map{|x|{
             'Id'           => x['ContactId'],
             'FirstName'    => x['Contact.FirstName'],
