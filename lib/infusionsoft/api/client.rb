@@ -10,6 +10,7 @@ module Infusionsoft
       def initialize(options)
         model :Contact
         model :ContactGroup
+        model :ContactGroupAssign
         model :ContactGroupCategory
 
         @api_key  = options[:api_key]
