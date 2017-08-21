@@ -39,6 +39,15 @@ Return a list of all contacts
 
     api_client.contact.all
 
+You can execute a block of code while iterating contacts
+
+    api_client.contact.find_each({}, true, 50) do |contacts|
+      # contacts.length === 50
+      contacts.each do |contact|
+        puts contact['Id']
+      end
+    end
+
 You can also pass a query hash
 
     api_client.contact.all({
@@ -67,6 +76,7 @@ Or by passing a query
 ####  Contact Groups
 
 Return a list of all contact groups
+
     api_client.contact_group_assign.all
 
 You can also pass a hash query
@@ -78,6 +88,7 @@ You can also pass a hash query
 ####  Contact Group Assignments
 
 Return a list of all contact group assignments (i.e. contacts with a tag or group)
+
     api_client.contact_group_assign.all
 
 You can also pass a hash query
@@ -89,6 +100,7 @@ You can also pass a hash query
 ####  Contact Group Categories
 
 Return a list of all contact group categories
+
     api_client.contact_group_category.all
 
 You can also pass a hash query
