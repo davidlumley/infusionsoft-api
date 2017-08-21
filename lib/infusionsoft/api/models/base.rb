@@ -11,7 +11,7 @@ module Infusionsoft
         def all(query = {}, paginate = true, per_page = 1000, page_number = 0)
           per_page = [per_page, 1000].min
           results = @client.connection.call('DataService.query', @client.api_key, self.table_name, per_page, page_number, query, self.fields)
-          results.length > 0 && paginate ? results + self.all(query, true, page_number + 1) : results
+          results.length > 0 && paginate ? results + self.all(query, true, per_page, page_number + 1) : results
         end
 
         def find_each(query = {}, paginate = true, per_page = 1000, page_number = 0, &block)
