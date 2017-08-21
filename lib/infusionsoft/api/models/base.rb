@@ -39,6 +39,10 @@ module Infusionsoft
           end
         end
 
+        def count(query={})
+          @client.connection.call('DataService.count', @client.api_key, self.table_name, query)
+        end
+
         def table_name
           @model_name
         end

@@ -39,6 +39,10 @@ Return a list of all contacts
 
     api_client.contact.all
 
+You can get a count of all contacts
+
+    api_client.contact.count
+
 You can execute a block of code while iterating contacts
 
     api_client.contact.find_each({}, true, 50) do |contacts|
